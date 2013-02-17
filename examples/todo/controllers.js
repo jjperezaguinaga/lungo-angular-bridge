@@ -1,4 +1,8 @@
 function AppCtrl($scope, $location) {
+  $scope.refreshApplication = function() {
+      window.location = '/examples/todo/index.html';
+    }
+
   AppRouter.instance = AppRouter(Lungo, $location, $scope);
 }
 

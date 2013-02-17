@@ -1,4 +1,5 @@
 'use strict';
+/*
 Lungo.mock = function() {
 	return {
 		Router: {
@@ -9,7 +10,7 @@ Lungo.mock = function() {
 	};
 }
 
-Lungo = Lungo.mock();
+Lungo = Lungo.mock();*/
 
 describe('AppRouter', function() { 
 

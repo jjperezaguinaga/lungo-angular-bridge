@@ -21,7 +21,9 @@ var AppRouter = function(Lungo, $location, $scope) {
     }
     else {
       console.log('AppRouter::showSection - transitioning to ', sectionName);
-      Lungo.Router.section(sectionName);
+      var spy = {wasModified: false};
+      Lungo.Router.section(sectionName, spy);
+      console.log("Section was modified:"+spy.wasModified);
     }
   };
 
