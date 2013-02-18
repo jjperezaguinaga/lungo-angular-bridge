@@ -32,6 +32,8 @@ var AppRouter = function(Lungo, $location, $scope) {
   });
 
   $scope.$on('$routeChangeSuccess', function(next, last) {    
+    console.log(next);
+    console.log(last);
     console.log('AppRouter::routeChangeSuccess - route change successful to: ', $location.path());
     if(routingHistory.length > 0 && routingHistory[routingHistory.length-2] == $location.path()) {
       console.log('AppRouter::routeChangeSuccess - detected back, and going there...');
