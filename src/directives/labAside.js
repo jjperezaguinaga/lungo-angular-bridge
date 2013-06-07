@@ -151,7 +151,7 @@
       self.clickbuster.coordinates = [];
     }
 
-    })(Lungo);
+    })(Lungo); //Lungo Namespace
 
     var subscribeEvents = function(hrefs) { //STOLEN: from Lungo
       var CLASS = {
@@ -209,10 +209,11 @@ return {
         //var targetEvent = Lungo.Core.environment().isMobile ? 'tap' : 'click';
         var targetEvent = 'tap';
         //TODO: deprecate this environment selection in favour of tap-only
-        Lungo.dom(element[0]).bind(targetEvent, function(event) {
+        new Lungo.FastButton(element[0], function(event) {
           Lungo.View.Aside.toggle('#' + asideId);
           event.preventDefault();
         });
+        
         if(options.swipeEnabled) {
           subscribeEvents(Lungo.dom(element[0]));
         }
