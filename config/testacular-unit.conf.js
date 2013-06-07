@@ -5,6 +5,9 @@
 // base path, that will be used to resolve files and exclude
 basePath = '../';
 
+preprocessors = {
+  '**/src/**/*.js': 'coverage'
+};
 
 // list of files / patterns to load in the browser
 files = [
@@ -15,6 +18,7 @@ files = [
   'components/quojs/quo.debug.js',
   'lib/lungo.debug.js',
   'test/lib/lungo-mocks.js',
+  'src/lungo-angular-bridge.module.js',
   'src/**/*.js',
   'test/spec/**/*.js'
 ];
@@ -28,7 +32,7 @@ exclude = [
 
 // test results reporter to use
 // possible values: 'dots', 'progress', 'junit'
-reporters = ['progress'];
+reporters = ['progress', 'coverage'];
 
 
 // web server port
@@ -60,7 +64,7 @@ autoWatch = true;
 // - Safari (only Mac)
 // - PhantomJS
 // - IE (only Windows)
-browsers = ['Chrome'];
+browsers = ['Firefox'];
 
 
 // If browser does not capture in given timeout [ms], kill it
@@ -70,3 +74,8 @@ captureTimeout = 5000;
 // Continuous Integration mode
 // if true, it capture browsers, run tests and exit
 singleRun = false;
+
+coverageReporter = {
+  type : 'lcov',
+  dir : 'out/coverage'
+};

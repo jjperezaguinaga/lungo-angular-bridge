@@ -1,5 +1,5 @@
-'use strict';
-
+(function(angular) {
+    'use strict';
 
 // Declare app level module which depends on filters, and services
 angular.module('BridgeExample', 
@@ -21,7 +21,10 @@ angular.module('BridgeExample',
     $routeProvider.when('/navbarissue/navart1', {templateUrl: 'examples/simple/partials/navbarissue.html'});
     $routeProvider.when('/navbarissue/navart2', {templateUrl: 'examples/simple/partials/navbarissue.html'});
     $routeProvider.when('/navbarissue/navart3', {templateUrl: 'examples/simple/partials/navbarissue.html'});
+    
+    $routeProvider.when('/eventtimings', {templateUrl: 'examples/simple/partials/event-timings.html', controller: 'TimingsCtrl'});
 
     $routeProvider.otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
   }]);
+})(angular);

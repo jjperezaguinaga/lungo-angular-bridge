@@ -1,6 +1,6 @@
-Lungo Angular Bridge ![](https://travis-ci.org/centralway/lungo-angular-bridge.png)
+Lungo Angular Bridge ![](https://travis-ci.org/centralway/lungo-angular-bridge.png) [![Coverage Status](https://coveralls.io/repos/centralway/lungo-angular-bridge/badge.png?branch=development)](https://coveralls.io/r/centralway/lungo-angular-bridge?branch=development)
 ====
-Linking [Lungo](http://lungo.tapquo.com) to [Angular](http://angularjs.org) to bring you mobile awesomeness
+Linking [Lungo](http://lungo.tapquo.com) to [Angular](http://angularjs.org) to bring you mobile awesomeness (if you're worried about the code coverage, we're working on it)
 
 #### What is Lungo?
 

@@ -8,11 +8,22 @@ describe('Aside tests', function() {
 		sleep(1);
 	});
 
+    describe('aside swipe configuration', function() {
+      beforeEach(function() {
+        browser().navigateTo('../test/cases/aside-options-tests.html');
+      });
+      
+      it('should not have swiping enabled', function() {
+        labElem('body').swipeRight();
+        expect(element('#aside1:visible').count()).toBe(0);
+      });
+      
+    });
 
 	describe('Aside across sections', function() {
 
 		beforeEach(function() {
-			element('#triggerLeftAsideLink').click();
+			labElem('#triggerLeftAsideLink').tap();
 			sleep(ASIDE_WAIT);
 			element('#aside1_dynamic').click();
 			sleep(ASIDE_WAIT);			
@@ -33,17 +44,17 @@ describe('Aside tests', function() {
 		});
 
 		it('should display the aside', function() {
-			element('#triggerLeftAsideLink').click();
+			labElem('#triggerLeftAsideLink').tap();
 			sleep(ASIDE_WAIT);
 
 			expect(element('#aside1:visible').count()).toBe(1);
 		});
 
 		it('should hide a previously-displayed aside', function() {
-			element('#triggerLeftAsideLink').click();
+			labElem('#triggerLeftAsideLink').tap();
 			sleep(ASIDE_WAIT);
 
-			element('#triggerLeftAsideLink').click();
+			labElem('#triggerLeftAsideLink').tap();
 			sleep(ASIDE_WAIT);
 
 			expect(element('#aside1:visible').count()).toBe(0);
