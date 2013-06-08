@@ -14,12 +14,18 @@
         <script type="text/javascript" src="../../components/quojs/quo.debug.js"></script>
         <script type="text/javascript" src="../../lib/lungo.debug.js"></script>
     </head>
+    <script>
+        function triggerAsideForTest(asideId) {
+            Lungo.View.Aside.toggle('#' + asideId);
+            event.preventDefault();
+        }
+    </script>
 
     <body lab-boot ng-controller="TopLevelCtrl">
         <section id="main" data-transition="slide">
             <header ng-controller="AppCtrl" data-title="Simple Application">
                 <nav class="left">
-                    <a data-icon="menu" lab-aside='aside1' id="triggerLeftAsideLink"></a>
+                    <a href="javascript:void(0)" onclick="triggerAsideForTest('aside1')"></a>
                     <a lab-tap='refreshApplication()' data-icon="refresh"></a>
                     Hello, {{name}}
                 </nav>
