@@ -164,7 +164,7 @@ angular.module('Centralway.lungo-angular-bridge')
       if (isTouch) {
         this.events.push(addListener(element, 'touchstart', this, this.useCapture));    
       }
-      this.events.push(addListener(element, 'click', this, this.useCapture));
+      this.events.push(addListener(element, 'tap', this, this.useCapture));
     };
     
     // Remove event handling when no longer needed for this button to avoid DOM Memory Leaks
@@ -181,7 +181,7 @@ angular.module('Centralway.lungo-angular-bridge')
         case 'touchstart': this.onTouchStart(event); break;
         case 'touchmove': this.onTouchMove(event); break;
         case 'touchend': this.onClick(event); break;
-        case 'click': this.onClick(event); break;
+        case 'tap': this.onClick(event); break;
       }
     };
     
@@ -267,7 +267,7 @@ angular.module('Centralway.lungo-angular-bridge')
 
     // Only bust clicks on touch devices
     if (isTouch) {
-      document.addEventListener('click', self.clickbuster.onClick, true);
+      document.addEventListener('tap', self.clickbuster.onClick, true);
       self.clickbuster.coordinates = [];
     }
 
@@ -333,7 +333,7 @@ angular.module('Centralway.lungo-angular-bridge')
           Lungo.View.Aside.toggle('#' + asideId);
           event.preventDefault();
         });
-        
+
         if(options.swipeEnabled) {
           subscribeEvents(Lungo.dom(element[0]));
         }
