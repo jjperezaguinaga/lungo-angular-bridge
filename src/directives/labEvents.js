@@ -37,8 +37,19 @@
           return;
         }
         var url = attr['href'];
-        Lungo.dom(element[0]).on('tap', function(event) {
-          Lungo.dom(element[0]).trigger('click');
+        new Lungo.FastButton(element[0], function(event){
+          //We need to fire the element with native javascript and not the Lungo
+          //wrapper, otherwise won't be catched by our ghostclickbuster.
+          //Crossbrowser solution, of course
+          if ( document.createEvent ) {
+            var evt = document.createEvent('MouseEvents');
+            evt.initEvent('click', true, false);
+            element[0].dispatchEvent.apply(element[0], evt);  
+          } else if( document.createEventObject ) {
+            element[0].fireEvent.apply(element[0], 'onclick') ; 
+          } else if (typeof node.onclick == 'function' ) {
+            element[0].onclick.apply(element[0]); 
+          }
         });
       }
   }}])  
